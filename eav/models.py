@@ -384,7 +384,7 @@ class Value(models.Model):
         ContentType, on_delete=models.PROTECT, related_name='value_entities'
     )
 
-    entity_id = models.IntegerField()
+    entity_id = models.CharField(max_length=36, blank=False)
     entity = generic.GenericForeignKey(ct_field='entity_ct', fk_field='entity_id')
 
     value_text = models.TextField(blank=True, null=True)
